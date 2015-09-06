@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './config/environments' #database configuration
-require './models/model'        #Model class
+require './models/rsvp'         #Rsvp class
 
 get '/' do
 	erb :index
