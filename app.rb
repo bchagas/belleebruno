@@ -4,22 +4,12 @@ require './config/environments' #database configuration
 require './models/message'     #Rsvp messages
 require './models/rsvp'         #Rsvp class
 
-get '/', layout: :application do
-	erb :index
+get '/' do
+	erb :index, application_layout
 end
 
-post '/submit' do
-	@model = Model.new(params[:model])
-	if @model.save
-		redirect '/models'
-	else
-		"Sorry, there was an error!"
-	end
-end
-
-get '/models' do
-	@models = Model.all
-	erb :models
+def application_layout
+  { layout: :"layouts/application" }
 end
 
 after do
