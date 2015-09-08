@@ -4,7 +4,7 @@ require './config/environments' #database configuration
 require './models/message'     #Rsvp messages
 require './models/rsvp'         #Rsvp class
 
-get '/' do
+get '/', layout: :application do
 	erb :index
 end
 
