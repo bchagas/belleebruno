@@ -1,0 +1,29 @@
+<form action="confirm" method="post">
+  <ol class="inputs">
+    <li>
+      <label for="name">Seu nome</label>
+      <input type="text" name="name" id="name" />
+    </li>
+
+    <li>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email">
+    </li>
+
+    <li>
+      <label for="status">Você comparecerá?</label>
+      <select name="status">
+        <option selected="selected" disabled="disabled">Selecione</option>
+        <option value="1">Sim</option>
+        <option value="2">Ainda não sei</option>
+        <option value="0">Não poderei comparecer</option>
+      </select>
+    </li>
+  </ul>
+
+  <ul class="actions">
+    <li>
+      <button type="submit">Enviar</button>
+    </li>
+  </ul>
+</form>

@@ -1,1 +1,12 @@
+<nav>
+  <ul>
+    <% %w(Home Sobre Confirmação\ de\ Presença Cerimônia\ e\ Festa Informações Lista\ de\ Pesentes Fotos).each do |item| %>
+      <li><%= link_to item, item.parameterize %></li>
+    <% end %>
+  </ul>
+</nav>
+
+<%= styled_flash %>
+
+<h1>Belle e Bruno</h1>
 <%= yield %>
