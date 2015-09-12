@@ -1,15 +1,12 @@
 require "sinatra"
 require "sinatra/activerecord"
 require "sinatra/static_assets"
-require "sinatra/flash"
 require "./config/environments"     #database configuration
 require "./helpers/application"     #view helpers
 require "./models/music_sugestion"  #music Sugestion class
 require "./models/rsvp"             #rsvp class
 
-enable :sessions
-
-get "/home" do
+get "/" do
 	erb :index, application_layout
 end
 
