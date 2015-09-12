@@ -28,7 +28,6 @@ post "/confirm" do
   if rsvp.save
     erb :confirmation, application_layout
   else
-    flash[:error] = parse_errors(rsvp.errors.messages)
     erb :confirmation, application_layout
   end
 end
