@@ -26,6 +26,18 @@ get "/indique-uma-musica" do
   erb :music_sugestion, application_layout
 end
 
+get "/informacoes" do
+  erb :informations, application_layout
+end
+
+get "/lista-de-presentes" do
+  erb :gift_list, application_layout
+end
+
+get "/fotos" do
+  erb :photos, application_layout
+end
+
 #post routes
 post "/confirm" do
   rsvp = Rsvp.new(params)
