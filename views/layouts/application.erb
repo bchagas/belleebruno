@@ -1,13 +1,27 @@
-<h1><a href="/">Belle e Bruno</a></h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>Belle e Bruno</title>
 
-<nav>
-  <ul>
-    <% %w(Sobre Confirmação\ de\ Presença Cerimônia\ e\ Festa Informações Lista\ de\ Pesentes Fotos).each do |item| %>
-      <li><%= link_to item, item.parameterize %></li>
-    <% end %>
-  </ul>
-</nav>
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
 
-<%= styled_flash %>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
 
-<%= yield %>
+  <body>
+    <h1><a href="/">Belle e Bruno</a></h1>
+
+    <nav>
+      <ul>
+        <% %w(Sobre Confirmação\ de\ Presença Cerimônia\ e\ Festa Informações Lista\ de\ Presentes Fotos).each do |item| %>
+          <li><%= link_to item, item.parameterize %></li>
+        <% end %>
+      </ul>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>
