@@ -1,6 +1,8 @@
+<h1><a href="/">Belle e Bruno</a></h1>
+
 <nav>
   <ul>
-    <% %w(Home Sobre Confirmação\ de\ Presença Cerimônia\ e\ Festa Informações Lista\ de\ Pesentes Fotos).each do |item| %>
+    <% %w(Sobre Confirmação\ de\ Presença Cerimônia\ e\ Festa Informações Lista\ de\ Pesentes Fotos).each do |item| %>
       <li><%= link_to item, item.parameterize %></li>
     <% end %>
   </ul>
@@ -8,5 +10,4 @@
 
 <%= styled_flash %>
 
-<h1>Belle e Bruno</h1>
 <%= yield %>
