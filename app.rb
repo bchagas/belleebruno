@@ -10,10 +10,6 @@ get "/" do
 	erb :index, application_layout
 end
 
-get "/sobre" do
-  erb :about, application_layout
-end
-
 get "/confirmacao-de-presenca" do
   erb :confirmation, application_layout
 end
