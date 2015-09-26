@@ -2,10 +2,22 @@ require "sinatra"
 require "sinatra/content_for"
 require "sinatra/activerecord"
 require "sinatra/static_assets"
+require "sass"
+require 'sinatra/assetpack'
 require "./config/environments"     #database configuration
 require "./helpers/application"     #view helpers
 require "./models/music_sugestion"  #music Sugestion class
 require "./models/rsvp"             #rsvp class
+
+configure do
+  set :root, File.dirname(__FILE__)
+  set :sass, { :style => :expanded, :debug_info => true }
+end
+
+get '/css/:name.css' do |name|
+  content_type :css
+  sass "stylesheets/#{name}".to_sym, :layout => false
+end
 
 get "/" do
 	erb :index, application_layout
