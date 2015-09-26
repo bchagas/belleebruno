@@ -3,7 +3,6 @@ require "sinatra/content_for"
 require "sinatra/activerecord"
 require "sinatra/static_assets"
 require "sass"
-require 'sinatra/assetpack'
 require "./config/environments"     #database configuration
 require "./helpers/application"     #view helpers
 require "./models/music_sugestion"  #music Sugestion class
