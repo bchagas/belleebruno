@@ -2,7 +2,8 @@
   +outer-container
 
 body
-  > header
+  > header,
+  > footer
     @extend %container-block
     +padding(30px null null)
 
@@ -27,6 +28,11 @@ body
 
   > main
     @extend %container-block
+
+  > footer
+    border-top: 1px solid $black
+    text-align: center
+    +padding(null null 40px)
 
 time
   +padding(30px null null)

@@ -1,7 +1,12 @@
 $amatic: "Amatic SC", cursive
 $josefin: "Josefin Sans", sans-serif
 
-body > header > nav
+@for $i from 1 through 6
+  h#{$i}
+    font-family: $amatic
+
+body > header > nav,
+body > footer
   font:
     family: $amatic
     size: rem(24)
