@@ -1,4 +1,5 @@
 require "sinatra"
+require "sinatra/content_for"
 require "sinatra/activerecord"
 require "sinatra/static_assets"
 require "./config/environments"     #database configuration
