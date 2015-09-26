@@ -7,6 +7,11 @@
   <div id="weeding-date"></div>
 </section>
 
+<section class="location">
+  <h2>Local</h2>
+  <div id="map"></div>
+</section>
+
 <% content_for :javascripts do %>
   <script type="text/javascript">
     $('#weeding-date').countdown('2015/11/28', function(event) {
@@ -15,7 +20,46 @@
         + '<div class="time">%d<span class="label">Dias</span></div> '
         + '<div class="time">%H<span class="label">Horas</span></div> '
         + '<div class="time">%M<span class="label">Minutos</span></div> '
-        + '<div class="time">%S<span class="label">Segundos</span></div>'));
+        + '<div class="time">%S<span class="label">Segundos</span></div>'
+      ));
+    });
+
+    function initMap() {
+      var location = { lat: -23.5533585, lng: -46.6617371 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: location,
+        zoom: 16
       });
+
+      var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1>Espaço Quintal</h1>'+
+      '<div id="bodyContent">'+
+      '<p>Localizado em Higienópolis, um bairro de muita tradição em São Paulo e de fácil acesso a todos que se deslocam em nossa cidade, o Quintal fica naquele que foi o primeiro sobrado da Avenida Angélica, tendo sido construído no final do século XIX pelos imigrantes artesãos alemães Franz Hermsdorf e João Jorge Bittner.</p>'+
+      '<br/>'+
+      '<p>Mais informações em: <a href="http://www.quintalbarerestaurante.com.br/">http://www.quintalbarerestaurante.com.br/</a></p>'+
+      '</div>'+
+      '</div>';
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 200
+      });
+
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "Espaço Quintal"
+      });
+
+      marker.addListener("click", function() {
+        infowindow.open(map, marker);
+      });
+    }
   </script>
+
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8u3nNhXM2PYPYbJMIQA3lECt3oRnUIY0&callback=initMap">
+    </script>
 <% end %>
