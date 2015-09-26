@@ -23,6 +23,14 @@ get "/" do
 	erb :index, application_layout
 end
 
+get '/images/:file' do
+  send_file("images/"+params[:file])
+end
+
+get '/javascripts/:file' do
+  send_file("javascripts/"+params[:file])
+end
+
 get "/confirmacao-de-presenca" do
   erb :confirmation, application_layout
 end
