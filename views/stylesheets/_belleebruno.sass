@@ -1,0 +1,52 @@
+%container-block
+  +outer-container
+
+body
+  > header
+    @extend %container-block
+    +padding(30px null null)
+
+    > nav
+      @extend %container-block
+      +padding(32px null null)
+      +margin(null null 32px)
+
+      ul
+        +display(flex)
+        +justify-content(space-between)
+
+      li
+        display: inline
+
+      a
+        color: $black
+        text-decoration: none
+
+    > h1
+      text-align: center
+
+  > main
+    @extend %container-block
+
+time
+  +padding(30px null null)
+
+#weeding-date
+  +span-columns(6)
+  float: none
+  +margin(null auto)
+  +padding(16px null null)
+
+  &:last-child
+    +margin(null auto null null)
+
+  .time
+    display: inline-block
+    text-align: center
+    +margin(null 50px null null)
+
+    &:last-child
+      +margin(null 0 null null)
+
+  .label
+    display: block
