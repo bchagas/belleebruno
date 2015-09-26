@@ -1,8 +1,10 @@
 source "https://rubygems.org"
 
-gem "sinatra"
+gem "sinatra", "1.4.3"
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "sinatra-static-assets"
+gem "sinatra-contrib"
+gem 'sass', ">=3.3.0"
 gem "tux"
 gem "pg"
