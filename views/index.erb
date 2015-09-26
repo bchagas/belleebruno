@@ -1,1 +1,21 @@
-<h1>Belle e Bruno</h1>
+<figure>
+  <%= image_tag "/images/banner.png" %>
+</figure>
+
+<section class="counter">
+  <time datetime="2015-11-28">28 de Novembro de 2015, São Paulo - SP</time>
+  <div id="weeding-date"></div>
+</section>
+
+<% content_for :javascripts do %>
+  <script type="text/javascript">
+    $('#weeding-date').countdown('2015/11/28', function(event) {
+      var $this = $(this).html(event.strftime(''
+        + '<div class="time">%m<span class="label">Meses</span></div> '
+        + '<div class="time">%d<span class="label">Dias</span></div> '
+        + '<div class="time">%H<span class="label">Horas</span></div> '
+        + '<div class="time">%M<span class="label">Minutos</span></div> '
+        + '<div class="time">%S<span class="label">Segundos</span></div>'));
+      });
+  </script>
+<% end %>
