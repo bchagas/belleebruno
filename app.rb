@@ -18,16 +18,16 @@ get '/css/:name.css' do |name|
   sass "stylesheets/#{name}".to_sym, :layout => false
 end
 
-get "/" do
-	erb :index, application_layout
-end
-
 get '/images/:file' do
   send_file("images/"+params[:file])
 end
 
 get '/javascripts/:file' do
   send_file("javascripts/"+params[:file])
+end
+
+get "/" do
+	erb :index, application_layout
 end
 
 get "/confirmacao-de-presenca" do
