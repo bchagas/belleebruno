@@ -1,0 +1,43 @@
+form
+  +span-columns(6)
+  float: none
+  +margin(null auto)
+
+  &:last-child
+    +margin(null auto)
+
+#{$all-text-inputs},
+select
+  +size(100% auto)
+  background: transparent
+  border-radius: 0
+  border-bottom-color: $black
+  border-width: 1px
+  border:
+    top: none
+    left: none
+    right: none
+  color: $black
+  font:
+    family: $josefin
+    size: rem(16)
+  +padding(10px null)
+  -webkit-appearance: none
+
+#{$all-text-inputs-focus}
+  outline: none
+
+label
+  bottom: 10px
+  color: #9B9B9B
+  display: block
+  position: absolute
+  +transition(all 0.2s ease-in-out)
+
+li
+  +margin(null null 15px)
+  position: relative
+
+  &.focus label
+    bottom: 30px
+    font-size: rem(12)
