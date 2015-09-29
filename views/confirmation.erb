@@ -33,9 +33,11 @@
       </ol>
     </li>
 
-    <li id="new-guest">
+    <li id="new-guest" class="guest">
       <label for="guest">Nome do acompanhante</label>
-      <input type="email" name="guests[guest-name]" id="guest">
+      <input type="text" name="guests[guest-name]" id="guest">
+
+      <button id="add">+1 convidado</button>
     </li>
   </ul>
 
@@ -51,6 +53,7 @@
     $(function(){
       var $inputs = $("input[type=text], input[type=email]");
       var $moreGuest = $("input[name=guest]");
+      var $addGuest = $("button[id=add]");
 
       $inputs.on("blur", function() {
         var $input = $(this);
@@ -75,6 +78,27 @@
         } else {
           $newGuestBlock.hide();
         };
+      });
+
+      $addGuest.on("click", function(event) {
+        event.preventDefault();
+        var $guestsCount = $(".guest").length;
+
+        if($guestsCount === 4) {
+          alert("Número máximo de convidados atingido");
+          return false;
+        }
+
+        var $field = $(this).parents("li");
+        var $newField = $field.clone();
+        var id = $newField.prop("id");
+        var $newFieldLabel = $newField.find("label");
+
+        $newField.find("button").remove();
+        $newField.prop("id", id + "-" + $guestsCount++);
+        $newFieldLabel.prop("for", id + "-" + $guestsCount++);
+
+        $field.after($newField);
       });
     });
   </script>

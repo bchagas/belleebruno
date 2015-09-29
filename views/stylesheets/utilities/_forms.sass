@@ -83,16 +83,29 @@ form
 
   #new-guest
     display: none
+    position: relative
 
   .actions
     text-align: center
     +padding(15px null null)
 
   button
-    background: url("/images/background-confirm.png") no-repeat center center
-    border: none
-    cursor: pointer
-    color: white
-    font-size: rem(24)
-    line-height: rem(24)
-    +padding(4px 20px)
+    &[type="submit"],
+    &#add
+      border: none
+      cursor: pointer
+
+    &[type="submit"]
+      background: url("/images/background-confirm.png") no-repeat center center
+      color: white
+      font-size: rem(24)
+      line-height: rem(24)
+      +padding(4px 20px)
+
+    &#add
+      background: transparent
+      font-size: rem(18)
+      position: absolute
+      right: 0
+      top: 10px
+      +padding(0)
