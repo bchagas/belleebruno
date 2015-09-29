@@ -26,3 +26,23 @@
     </li>
   </ul>
 </form>
+
+<% content_for :javascripts do %>
+  <script>
+    $(function(){
+      $("input").on("blur", function(){
+        var $input = $(this);
+        $input.parent("li").removeClass("focus filled");
+
+        if(!_.isEmpty($input.val())) {
+          $input.parent("li").addClass("filled");
+        }
+      });
+
+      $("input").on("focus", function(){
+        var $selector = $(this).parent("li");
+        $selector.addClass("focus");
+      });
+    });
+  </script>
+<% end %>
