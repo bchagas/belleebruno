@@ -23,14 +23,19 @@
       <label>Tem acompanhante(s)</label>
       <ol class="choices">
         <li>
-          <input type="radio" name="aggregated" value="0" id="aggregated-yes" />
-          <label for="aggregated-yes">Sim</label>
+          <input type="radio" name="guest" value="yes" id="guest-yes" />
+          <label for="guest-yes">Sim</label>
         </li>
         <li>
-          <input type="radio" name="aggregated" value="1" id="aggregated-no" />
-          <label for="aggregated-no">Não</label>
+          <input type="radio" name="guest" value="no" id="guest-no" />
+          <label for="guest-no">Não</label>
         </li>
       </ol>
+    </li>
+
+    <li id="new-guest">
+      <label for="guest">Nome do acompanhante</label>
+      <input type="email" name="guests[guest-name]" id="guest">
     </li>
   </ul>
 
@@ -44,9 +49,10 @@
 <% content_for :javascripts do %>
   <script>
     $(function(){
-      var $inputs = "input[type=text], input[type=email]";
+      var $inputs = $("input[type=text], input[type=email]");
+      var $moreGuest = $("input[name=guest]");
 
-      $($inputs).on("blur", function(){
+      $inputs.on("blur", function() {
         var $input = $(this);
         $input.parent("li").removeClass("focus filled");
 
@@ -55,9 +61,20 @@
         }
       });
 
-      $($inputs).on("focus", function(){
+      $inputs.on("focus", function() {
         var $selector = $(this).parent("li");
         $selector.addClass("focus");
+      });
+
+      $moreGuest.on("click", function() {
+        var value = $(this).val(),
+            $newGuestBlock = $("#new-guest");
+
+        if(value === "yes") {
+          $newGuestBlock.show();
+        } else {
+          $newGuestBlock.hide();
+        };
       });
     });
   </script>
