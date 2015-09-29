@@ -18,11 +18,25 @@
         <option value="0">Não poderei comparecer</option>
       </select>
     </li>
+
+    <li>
+      <label>Tem acompanhante(s)</label>
+      <ol class="choices">
+        <li>
+          <input type="radio" name="aggregated" value="0" id="aggregated-yes" />
+          <label for="aggregated-yes">Sim</label>
+        </li>
+        <li>
+          <input type="radio" name="aggregated" value="1" id="aggregated-no" />
+          <label for="aggregated-no">Não</label>
+        </li>
+      </ol>
+    </li>
   </ul>
 
   <ul class="actions">
     <li>
-      <button type="submit">Enviar</button>
+      <button type="submit">Confirmar</button>
     </li>
   </ul>
 </form>
@@ -30,7 +44,9 @@
 <% content_for :javascripts do %>
   <script>
     $(function(){
-      $("input").on("blur", function(){
+      var $inputs = "input[type=text], input[type=email]";
+
+      $($inputs).on("blur", function(){
         var $input = $(this);
         $input.parent("li").removeClass("focus filled");
 
@@ -39,7 +55,7 @@
         }
       });
 
-      $("input").on("focus", function(){
+      $($inputs).on("focus", function(){
         var $selector = $(this).parent("li");
         $selector.addClass("focus");
       });

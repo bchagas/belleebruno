@@ -1,7 +1,7 @@
 form
   +span-columns(6)
   float: none
-  +margin(null auto)
+  +margin(null auto 40px)
 
   &:last-child
     +margin(null auto)
@@ -37,9 +37,57 @@ label
 li
   +margin(null null 15px)
   position: relative
+  overflow: hidden
 
   &.focus,
   &.filled
     label
       bottom: 30px
       font-size: rem(12)
+
+.choices
+  +span-columns(2)
+  float: right
+  +padding(5px null)
+
+  li
+    float: right
+    +span-columns(1 of 2)
+    +padding(4px)
+    +margin(null null 0)
+
+    &:first-child
+      float: left
+
+  label
+    color: $black
+    cursor: pointer
+    display: block
+    +size(100% 100%)
+    font:
+      family: $amatic
+      size: rem(18)
+    line-height: rem(24)
+    position: absolute
+    top: 2px
+    text-align: center
+    +transition(none)
+
+  input[type="radio"]
+    visibility: hidden
+
+    &:checked + label
+      background: url("/images/background-choice.png") no-repeat center center
+      color: white
+
+.actions
+  text-align: center
+
+button
+  background: url("/images/background-confirm.png") no-repeat center center
+  border: none
+  cursor: pointer
+  color: white
+  font-size: rem(24)
+  line-height: rem(24)
+  +padding(4px 20px)
