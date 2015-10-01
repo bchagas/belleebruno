@@ -51,11 +51,11 @@
 <% content_for :javascripts do %>
   <script>
     $(function(){
-      var $inputs = $("input[type=text], input[type=email]");
+      var $inputs = "input[type=text], input[type=email]";
       var $moreGuest = $("input[name=guest]");
       var $addGuest = $("button[id=add]");
 
-      $inputs.on("blur", function() {
+      $(document).on("blur", $inputs, function() {
         var $input = $(this);
         $input.parent("li").removeClass("focus filled");
 
@@ -64,7 +64,7 @@
         }
       });
 
-      $inputs.on("focus", function() {
+      $(document).on("focus", $inputs, function() {
         var $selector = $(this).parent("li");
         $selector.addClass("focus");
       });
@@ -89,16 +89,19 @@
           return false;
         }
 
+        var $lastField = $(".guest").last();
         var $field = $(this).parents("li");
         var $newField = $field.clone();
         var id = $newField.prop("id");
         var $newFieldLabel = $newField.find("label");
 
         $newField.find("button").remove();
+        $newField.removeClass("filled");
+        $newField.find("input").val("")
         $newField.prop("id", id + "-" + $guestsCount++);
         $newFieldLabel.prop("for", id + "-" + $guestsCount++);
 
-        $field.after($newField);
+        $lastField.after($newField);
       });
     });
   </script>
