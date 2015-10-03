@@ -1,5 +1,18 @@
 pt-BR:
-  formtastic:
-    labels:
-      guest:
-        title: "VBA"
+  activerecord:
+    errors:
+      models:
+        rsvp:
+          attributes:
+            name:
+              blank: "Você não tem nome? rs"
+
+            email:
+              blank: "Não tem um email? Duvido!"
+              taken: "Email já confirmado, contate os noivos!"
+
+            status:
+              blank: "Precisamos saber se você vai..."
+
+            guest:
+              blank: "É só você?"
