@@ -24,6 +24,6 @@ module Belleebruno
     config.active_record.raise_in_transactional_callbacks = true
 
     # Assets config
-    config.serve_static_assets = true
+    config.serve_static_files = true
   end
 end
