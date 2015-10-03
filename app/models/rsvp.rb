@@ -1,5 +1,6 @@
 class Rsvp < ActiveRecord::Base
-  validates :name, :email, :status, :guest, presence: true
+  validates :name, :email, :status, presence: true
+  validates_inclusion_of :guest, :in => [true, false]
   validates_uniqueness_of :email
   serialize :guest_name, Array
 
