@@ -49,6 +49,13 @@
         }
       });
 
+      _.each($($inputs), function(el, i){
+        var field = $(el);
+        if(!_.isEmpty(field.val())) {
+          field.parent("li").addClass("filled");
+        }
+      });
+
       $(document).on("focus", $inputs, function() {
         var $selector = $(this).parent("li");
         $selector.addClass("focus");
