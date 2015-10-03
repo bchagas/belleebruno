@@ -1,0 +1,97 @@
+<%= semantic_form_for @rsvp do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name, label: "Seu nome" %>
+    <%= f.input :email, as: :email, label: "Seu email" %>
+    <%= f.input :status,
+                as: :select,
+                collection: @status_options,
+                label: false,
+                prompt: "Você comparecerá?"
+    %>
+
+    <%= f.input :guest,
+                as: :radio,
+                label: "Tem acompanhante(s)",
+                collection: @guests_options
+    %>
+    <%= f.input :guest_name,
+                label: "Nome do acompanhante",
+                wrapper_html: { id: "new-guest", class: "guest" }
+    %>
+
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit,
+                    as: :button,
+                    label: "Confirmar"
+    %>
+  <% end %>
+<% end %>
+
+<% content_for :javascripts do %>
+  <script>
+    $(function(){
+      var $inputs = "input[type=text], input[type=email]";
+      var $moreGuest = "input[type^=radio]";
+      var $addGuest = "button[id=add]";
+      var $newGuestBlock = $("#new-guest");
+
+      $newGuestBlock.append("<button id='add'>+1 Convidado</button>");
+
+      $(document).on("blur", $inputs, function() {
+        var $input = $(this);
+        $input.parent("li").removeClass("focus filled");
+
+        if(!_.isEmpty($input.val())) {
+          $input.parent("li").addClass("filled");
+        }
+      });
+
+      $(document).on("focus", $inputs, function() {
+        var $selector = $(this).parent("li");
+        $selector.addClass("focus");
+      });
+
+      $("form").on("click", $moreGuest, function() {
+        var that = $(this),
+            value = that.val();
+
+        $(".choices-group li").removeClass("checked");
+        that.parents("li").addClass("checked");
+
+        if(value === "true") {
+          $newGuestBlock.show();
+        } else {
+          $newGuestBlock.hide();
+          $("li[id*=new-guest-]").remove();
+        };
+      });
+
+      $("form").on("click", $addGuest, function(event) {
+        event.preventDefault();
+          var $guestsCount = $(".guest").length,
+              that = this;
+
+        if($guestsCount === 4) {
+          alert("Número máximo de convidados atingido");
+          return false;
+        }
+
+        var $lastField = $(".guest").last();
+        var $field = $(this).parents("li");
+        var $newField = $field.clone();
+        var id = $newField.prop("id");
+        var $newFieldLabel = $newField.find("label");
+
+        $newField.find("button").remove();
+        $newField.removeClass("filled");
+        $newField.find("input").val("")
+        $newField.prop("id", id + "-" + $guestsCount++);
+        $newFieldLabel.prop("for", id + "-" + $guestsCount++);
+
+        $lastField.after($newField);
+      });
+    });
+  </script>
+<% end %>
