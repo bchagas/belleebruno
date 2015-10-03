@@ -12,11 +12,12 @@
     <%= f.input :guest,
                 as: :radio,
                 label: "Tem acompanhante(s)",
-                collection: @guests_options
+                collection: [["Sim", 1], ["Não", 0]]
     %>
     <%= f.input :guest_name,
                 label: "Nome do acompanhante",
-                wrapper_html: { id: "new-guest", class: "guest" }
+                wrapper_html: { id: "new-guest", class: "guest" },
+                input_html: { name: "rsvp[guest_name][]" }
     %>
 
   <% end %>
@@ -60,7 +61,7 @@
         $(".choices-group li").removeClass("checked");
         that.parents("li").addClass("checked");
 
-        if(value === "true") {
+        if(value === "1") {
           $newGuestBlock.show();
         } else {
           $newGuestBlock.hide();
@@ -87,6 +88,7 @@
         $newField.find("button").remove();
         $newField.removeClass("filled");
         $newField.find("input").val("")
+        $newField.find("input").prop("id", id + "-" + $guestsCount++);
         $newField.prop("id", id + "-" + $guestsCount++);
         $newFieldLabel.prop("for", id + "-" + $guestsCount++);
 
