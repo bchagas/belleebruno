@@ -10,7 +10,7 @@ class RsvpsController < ApplicationController
    @rsvp = Rsvp.new(rsvp_params)
 
    if @rsvp.save
-     head :ok
+     redirect_to music_indications_path
    else
      @status_options = Rsvp::STATUSES.map { |s| [s.last, s.first] }
 

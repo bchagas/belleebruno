@@ -1,0 +1,13 @@
+<%= semantic_form_for @music_indication do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :song_name, label: "Nome da música" %>
+    <%= f.input :song_artist, label: "Nome do artista" %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit,
+                    as: :button,
+                    label: "Enviar"
+    %>
+  <% end %>
+<% end %>

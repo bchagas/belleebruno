@@ -16,3 +16,11 @@ pt-BR:
 
             guest:
               blank: "É só você?"
+
+        music_indication:
+          attributes:
+            song_name:
+              blank: "O nome da música não pode ficar em branco"
+
+            song_artist:
+              blank: "O nome do artista não pode ficar em branco"
