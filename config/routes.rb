@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#index'
 
-  resource :rsvps
+  get  "/confirmacao-de-presenca", to: "rsvps#new"
+  post :rsvps, to: "rsvps#create"
 end
