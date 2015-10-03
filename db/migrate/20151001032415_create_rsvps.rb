@@ -4,7 +4,7 @@ class CreateRsvps < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.integer :status
-      t.boolean :guest
+      t.boolean :guest, default: false
       t.string :guest_name
 
       t.timestamps null: false
