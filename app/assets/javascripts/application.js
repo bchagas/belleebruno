@@ -35,4 +35,42 @@ $(function(){
       message.remove();
     });
   });
+
+  $(window).on("resize", function() {
+    if($(window).width() < 620) {
+      if(typeof(slideout) == 'undefined') {
+        initSlide();
+      }
+    } else {
+      if(typeof slideout != 'undefined') {
+        slideout.destroy();
+        var menu = $(slideout.menu);
+        var panel = $(slideout.panel);
+        var menuClone = menu.clone();
+        var panelClone = panel.clone();
+        panel.replaceWith(panelClone);
+        menu.replaceWith(menuClone);
+        menuClone.removeClass("slideout-menu");
+        panelClone.removeClass("slideout-panel");
+        delete slideout;
+      }
+    }
+  });
+
+  if($(window).width() < 620) {
+    initSlide();
+  }
 });
+
+initSlide = function() {
+  slideout = new Slideout({
+    'panel': document.getElementById('panel'),
+    'menu': document.getElementById('menu'),
+    'padding': 256,
+    'tolerance': 70
+  });
+
+  $('.toggle-button').on('click', function() {
+    slideout.toggle();
+  });
+}
