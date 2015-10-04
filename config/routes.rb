@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get  "/confirmacao-de-presenca", to: "rsvps#new"
   post :rsvps, to: "rsvps#create"
 
-  get  "/indique-uma-musica", to: "music_indications#new"
+  get  "/indique-uma-musica", to: "music_indications#new", as: :music
   post :music_indications, to: "music_indications#create"
 end
