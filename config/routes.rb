@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   get  "/indique-uma-musica", to: "music_indications#new", as: :music
   post :music_indications, to: "music_indications#create"
+
+  get "/:page", to: "pages#show"
 end
