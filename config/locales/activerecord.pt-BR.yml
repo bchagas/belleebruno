@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "Por favor, coloque uma senha"
+              too_short: "Mínimo 8 caracteres"
+
+            password_confirmation:
+              confirmation: "A confirmação da senha não confere"
+
+            email:
+              blank: "Por favor, coloque um email"
