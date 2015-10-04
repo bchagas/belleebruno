@@ -26,6 +26,7 @@
 
       <nav id="menu">
         <ul>
+          <li id="home"><%= link_to "Página Principal", root_path %></li>
           <% menu_items.each do |item| %>
             <li><%= link_to item, item.parameterize%></li>
           <% end %>
