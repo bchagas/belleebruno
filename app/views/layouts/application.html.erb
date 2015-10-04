@@ -28,6 +28,13 @@
     </header>
 
     <main>
+      <% flash.each do |name, msg| %>
+        <div class="<%= "alert #{name}" %>">
+          <%= msg %>
+          <a href="" class="close">x</a>
+        </div>
+      <% end %>
+
       <%= yield %>
     </main>
 

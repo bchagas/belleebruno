@@ -26,4 +26,13 @@ $(function(){
     var $selector = $(this).parent("li");
     $selector.addClass("focus");
   });
+
+  $(".alert").on("click", ".close", function(event){
+    event.preventDefault();
+    var message = $(this).parents(".alert");
+
+    message.fadeOut("fast", function(){
+      message.remove();
+    });
+  });
 });

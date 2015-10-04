@@ -28,6 +28,7 @@ body
 
   > main
     @extend %container-block
+    position: relative
 
   > footer
     border-top: 1px solid $black
@@ -69,3 +70,27 @@ time
   height: 446px
   +margin(-20px null null)
   z-index: 1
+
+.alert
+  background: #4A90E2
+  border-radius: 5px
+  color: white
+  font:
+    size: rem(25)
+    family: $amatic
+  +padding(10px null)
+  position: absolute
+  +size(100% auto)
+  text-align: center
+
+  .close
+    color: white
+    display: block
+    font:
+      family: $josefin
+      size: rem(25)
+    text-align: right
+    text-decoration: none
+    right: 10px
+    top: 14px
+    position: absolute
