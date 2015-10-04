@@ -38,6 +38,9 @@ body
 time
   +padding(30px null null)
 
+figure img
+  width: 100%
+
 #weeding-date
   +span-columns(6)
   float: none
@@ -51,6 +54,9 @@ time
     display: inline-block
     text-align: center
     +margin(null 50px null null)
+
+    +media($mobile)
+      +margin(null 20px null null)
 
     &:last-child
       +margin(null 0 null null)
