@@ -8,8 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'rails_12factor', group: :production
 gem 'devise', :github => 'plataformatec/devise', :branch => 'master'
-
-
+gem 'jquery-turbolinks'
 gem 'formtastic', '~> 3.1.3 '
 gem 'neat'
 gem 'bourbon'

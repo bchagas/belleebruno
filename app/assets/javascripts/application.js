@@ -1,4 +1,5 @@
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -35,4 +36,51 @@ $(function(){
       message.remove();
     });
   });
+
+  $(function() {
+    $(window).on("resize", function() {
+      if($(window).width() < 620) {
+        if(typeof(slideout) == 'undefined') {
+          initSlide();
+        }
+      } else {
+        if(typeof slideout != 'undefined') {
+          destroySlide();
+        }
+      }
+    });
+
+    if($(window).width() < 620) {
+      if(typeof slideout != 'undefined') {
+        destroySlide();
+      }
+      initSlide();
+    }
+  });
 });
+
+initSlide = function() {
+  slideout = new Slideout({
+    'panel': document.getElementById('panel'),
+    'menu': document.getElementById('menu'),
+    'duration': 100,
+    'padding': 256,
+  });
+
+  $('.toggle-button').on('click', function() {
+    slideout.toggle();
+  });
+}
+
+destroySlide = function() {
+  slideout.destroy();
+  var menu = $(slideout.menu);
+  var panel = $(slideout.panel);
+  var menuClone = menu.clone();
+  var panelClone = panel.clone();
+  panel.replaceWith(panelClone);
+  menu.replaceWith(menuClone);
+  menuClone.removeClass("slideout-menu");
+  panelClone.removeClass("slideout-panel");
+  delete slideout;
+}

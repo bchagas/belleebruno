@@ -29,6 +29,9 @@ body
   > main
     @extend %container-block
     position: relative
+    > h1
+      text-align: center
+      display: none
 
   > footer
     border-top: 1px solid $black
@@ -102,6 +105,17 @@ figure img
     position: absolute
 
 main
+  button.toggle-button
+    position: fixed
+    background: url('menu.png') no-repeat left center
+    width: 48px
+    height: 48px
+    display: none
+    outline: none
+    cursor: pointer
+    top: 12px
+    left: 12px
+    border: none
   > p
     line-height: rem(20)
     text-align: center
@@ -111,3 +125,26 @@ main
     text-align: center
     +padding(20px null null)
     +margin(null null 20px)
+
+@media all and (max-width: 620px)
+  body
+    header
+      > h1
+        display: none
+    nav#menu
+      background: #4E4E4D
+      ul
+        display: block
+        li
+          display: list-item
+          padding: 10px 5px
+          a
+            color: #FFF
+            display: block
+    main
+      button.toggle-button
+        display: block
+      > h1
+        display: block
+    .slideout-menu
+      margin: 0
