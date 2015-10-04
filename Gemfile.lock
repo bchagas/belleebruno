@@ -16,6 +16,19 @@ GIT
       ransack (~> 1.3)
       sass-rails
 
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 9f37b6eff7b4f9b0441be5a687b3091db82befc4
+  branch: master
+  specs:
+    devise (3.5.2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -57,6 +70,7 @@ GEM
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.3)
+    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bourbon (4.2.3)
@@ -110,6 +124,7 @@ GEM
       sass (>= 3.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    orm_adapter (0.5.0)
     pg (0.18.3)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
@@ -178,6 +193,8 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -191,6 +208,7 @@ DEPENDENCIES
   activeadmin!
   bourbon
   byebug
+  devise!
   formtastic (~> 3.1.3)
   jquery-rails
   neat
