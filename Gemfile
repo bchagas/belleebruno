@@ -8,9 +8,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'rails_12factor', group: :production
 
-gem 'formtastic'
+gem 'formtastic', '~> 3.1.3 '
 gem 'neat'
 gem 'bourbon'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'byebug'
