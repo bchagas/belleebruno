@@ -113,6 +113,17 @@ form
     text-align: center
     +padding(15px null null)
 
+    .cancel
+      background: image-url("background-cancel.png") no-repeat center center
+      color: white
+      display: block
+      font:
+        family: $amatic
+        size: rem(24)
+      line-height: rem(24)
+      text-decoration: none
+      min-width: 226px
+
   button
     &[type="submit"],
     &#add
@@ -125,6 +136,7 @@ form
       font-size: rem(24)
       line-height: rem(24)
       +padding(4px 20px)
+      min-width: 110px
 
     &#add
       background: transparent
@@ -133,3 +145,12 @@ form
       right: 0
       top: 10px
       +padding(0)
+
+#new_music_indication
+  .actions li
+    display: inline
+    float: right
+    width: auto
+
+    &:first-child
+      float: left

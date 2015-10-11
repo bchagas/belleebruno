@@ -1,3 +1,7 @@
+<header>
+  <h2>Indique uma música</h2>
+  <h3>O que você gostaria de ouvir na nossa festa?</h3>
+</header>
 <%= semantic_form_for @music_indication do |f| %>
   <%= f.inputs do %>
     <%= f.input :song_name, label: "Nome da música" %>
@@ -5,6 +9,7 @@
   <% end %>
 
   <%= f.actions do %>
+    <li><%= link_to "Não gosto de música, obrigado!", root_path, class: "cancel" %></li>
     <%= f.action :submit,
                     as: :button,
                     label: "Enviar"
