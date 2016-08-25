@@ -1,0 +1,26 @@
+<div id="gn-request-form-widget" style="height: 650px"></div>
+
+<% content_for :javascripts do %>
+ <%= javascript_include_tag "http://smoke.getninjas.com.br/assets/request-form-widget.js" %>
+
+ <script>
+   GetNinjas.Widgets.RequestForm.init("#gn-request-form-widget", {
+     "category" : "reformas-e-reparos/pedreiro",
+     "partnerid" : "getninjas",
+     "width" : "100%",
+     "height" : "100%",
+     dataLayer: {
+       experiments: [{
+         experimentDescription: "(FEC-1359) Hotsite pedreiros",
+         experimentGoal: "request conversion rate",
+         experimentId: "FEC-1359",
+         experimentPageCategory: ["reformas-e-reparos/pedreiros"],
+         experimentPageType: ["subcategoria"],
+         experimentTool: "instapage",
+         experimentType: "landingpage",
+         experimentVersion: "control"
+       }]
+     }
+   });
+ </script>
+<% end %>
